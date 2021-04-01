@@ -10,6 +10,7 @@ public class LoginPage {
 	
 	public LoginPage(WebDriver iDriver) {
 		
+		//Initializing driver in a constructor , my first commit Somanko
 		this.driver = iDriver;
 	}
 	
