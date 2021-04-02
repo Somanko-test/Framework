@@ -9,6 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -42,11 +43,13 @@ public class BaseClass {
 		
 	}
 	
+	@Parameters({"browser","urlToTest"})
 	@BeforeClass
-	public void setup() {
+	public void setup(String browser,String urlToTest) {
 		
 		Reporter.log("Getting Browser Ready", true);
-		iDriver = BrowserFactory.startApplication(iDriver, config.getBrowser() , config.getURL());
+		//iDriver = BrowserFactory.startApplication(iDriver, config.getBrowser() , config.getURL());
+		iDriver = BrowserFactory.startApplication(iDriver, browser , urlToTest);
 		Reporter.log("Browser Launched", true);
 	}
 	
